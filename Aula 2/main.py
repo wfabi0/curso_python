@@ -82,7 +82,7 @@ def atv06():
     nome_completo = input("Digite seu nome completo: ")
     idade = int(input("Digite sua idade: "))
     altura = float(input("Digite sua altura (em metros): "))
-    print(f"{nome} tem {idade} anos e {altura:.2f} metros de altura.")
+    print(f"{nome_completo} tem {idade} anos e {altura:.2f} metros de altura.")
 
 
 def menu():
