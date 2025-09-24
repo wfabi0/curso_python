@@ -1,3 +1,13 @@
+import os
+
+
+def clear_screen():
+    if os.name == 'nt':
+        _ = os.system('cls')
+    else:
+        _ = os.system('clear')
+
+
 # idade_str = input("Digite sua idade: ")
 # idade_int = int(idade_str)
 
@@ -82,18 +92,32 @@ def menu():
         print("Saindo...")
     elif opcao == 1:
         atv01()
+        input("Pressione Enter para continuar...")
+        clear_screen()
     elif opcao == 2:
         atv02()
+        input("Pressione Enter para continuar...")
+        clear_screen()
     elif opcao == 3:
         atv03()
+        input("Pressione Enter para continuar...")
+        clear_screen()
     elif opcao == 4:
         atv04()
+        input("Pressione Enter para continuar...")
+        clear_screen()
     elif opcao == 5:
         atv05()
+        input("Pressione Enter para continuar...")
+        clear_screen()
     elif opcao == 6:
         atv06()
+        input("Pressione Enter para continuar...")
+        clear_screen()
     else:
         print("Opção inválida. Tente novamente.")
+        clear_screen()
 
 
-menu()
+while True:
+    menu()
