@@ -213,3 +213,77 @@ def q17():
             print("Novembro")
         elif inteiro == 12:
             print("Dezembro")
+
+
+def menu():
+    print("Escolha uma questão para executar (1-17) ou 0 para sair:")
+    for i in range(1, 18):
+        print(f"{i} - Questão {i}")
+    print("0 - Sair")
+    escolha = int(input("Digite sua escolha: "))
+    if escolha == 0:
+        print("Saindo...")
+        exit()
+    elif 1 <= escolha <= 17:
+        return escolha
+
+
+def pausa():
+    input("Pressione Enter para continuar...")
+
+
+while True:
+    escolha = menu()
+    if escolha == 1:
+        q1()
+        pausa()
+    elif escolha == 2:
+        q2()
+        pausa()
+    elif escolha == 3:
+        q3()
+        pausa()
+    elif escolha == 4:
+        q4()
+        pausa()
+    elif escolha == 5:
+        q5()
+        pausa()
+    elif escolha == 6:
+        q6()
+        pausa()
+    elif escolha == 7:
+        q7()
+        pausa()
+    elif escolha == 8:
+        q8()
+        pausa()
+    elif escolha == 9:
+        q9()
+        pausa()
+    elif escolha == 10:
+        q10()
+        pausa()
+    elif escolha == 11:
+        q11()
+        pausa()
+    elif escolha == 12:
+        q12()
+        pausa()
+    elif escolha == 13:
+        q13()
+        pausa()
+    elif escolha == 14:
+        q14()
+        pausa()
+    elif escolha == 15:
+        q15()
+        pausa()
+    elif escolha == 16:
+        q16()
+        pausa()
+    elif escolha == 17:
+        q17()
+        pausa()
+    else:
+        print("Escolha inválida. Tente novamente.")
