@@ -1,12 +1,24 @@
 def q01():
-    matriz = [[0, 1], [2, 3]]
+    matriz = [[], []]
+
     for i in range(2):
         for j in range(2):
-            print(matriz[i][j])
+            numero = int(
+                input(f"Digite o valor para a posição [{i}][{j}]: ")
+            )
+            matriz[i].append(numero)
+    print(matriz)
 
 
 def q02():
-    matriz = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    matriz = [[], [], []]
+    for i in range(3):
+        for j in range(3):
+            numero = int(
+                input(f"Digite o valor para a posição [{i}][{j}]: ")
+            )
+            matriz[i].append(numero)
+
     for i in range(3):
         for j in range(3):
             print(matriz[i][j], end=" ")
@@ -14,7 +26,14 @@ def q02():
 
 
 def q03():
-    matriz = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    matriz = [[], [], []]
+    for i in range(3):
+        for j in range(3):
+            numero = int(
+                input(f"Digite o valor para a posição [{i}][{j}]: ")
+            )
+            matriz[i].append(numero)
+
     for i in range(3):
         soma = 0
         for j in range(3):
@@ -23,7 +42,14 @@ def q03():
 
 
 def q04():
-    matriz = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    matriz = [[], [], []]
+    for i in range(3):
+        for j in range(3):
+            numero = int(
+                input(f"Digite o valor para a posição [{i}][{j}]: ")
+            )
+            matriz[i].append(numero)
+
     for j in range(3):
         soma = 0
         for i in range(3):
@@ -32,7 +58,14 @@ def q04():
 
 
 def q05():
-    matriz = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    matriz = [[], [], []]
+    for i in range(3):
+        for j in range(3):
+            numero = int(
+                input(f"Digite o valor para a posição [{i}][{j}]: ")
+            )
+            matriz[i].append(numero)
+
     diagonal = 0
     for i in range(3):
         diagonal += matriz[i][i]
@@ -45,7 +78,13 @@ def q05():
 
 
 def q06():
-    matriz = [[8, 1, 6], [3, 5, 7], [4, 9, 2]]
+    matriz = [[], [], []]
+    for i in range(3):
+        for j in range(3):
+            numero = int(
+                input(f"Digite o valor para a posição [{i}][{j}]: ")
+            )
+            matriz[i].append(numero)
 
     soma_ref = sum(matriz[0])
 
@@ -74,16 +113,53 @@ def q06():
 
 
 def q07():
-    matriz = []
+    matriz = [[], []]
+    pos = 1
     for i in range(2):
         for j in range(3):
-            nome = str(input(f"Digite o nome da pessoa {i + j + 1}: "))
-            matriz.append([nome])
+            nome = str(input(f"Digite o nome da pessoa {pos}: "))
+            matriz[i].append(nome)
+            pos += 1
 
-    print("Matriz:")
+    print("Matriz:", matriz)
+
+
+def q08():
+    matriz = [[], []]
     for i in range(2):
-        for j in range(3):
-            print(matriz[i][j])
+        for j in range(2):
+            numero = float(
+                input(f"Digite o valor para a posição [{i}][{j}]: ")
+            )
+            matriz[i].append(numero)
+
+    print(matriz)
 
 
-q07()
+def q09():
+    matriz1 = [[], []]
+    matriz2 = [[], []]
+    for i in range(2):
+        for j in range(2):
+            numero1 = float(
+                input(
+                    f"Digite o valor para a posição [{i}][{j}] da matriz 1: ")
+            )
+            matriz1[i].append(numero1)
+
+            numero2 = float(
+                input(
+                    f"Digite o valor para a posição [{i}][{j}] da matriz 2: ")
+            )
+            matriz2[i].append(numero2)
+
+    soma_matriz = [[], []]
+
+    for i in range(len(matriz1)):
+        for j in range(len(matriz1[0])):
+            soma_matriz[i].append(matriz1[i][j] + matriz2[i][j])
+
+    print(soma_matriz)
+
+
+q09()
