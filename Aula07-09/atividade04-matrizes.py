@@ -162,4 +162,26 @@ def q09():
     print(soma_matriz)
 
 
-q09()
+def q10():
+    matriz1 = [[], []]
+    matriz2 = [[], []]
+
+    for i in range(2):
+        for j in range(2):
+            numero1 = float(
+                input(f"Digite o valor para a posição [{i}][{j}] da matriz 1: "))
+            matriz1[i].append(numero1)
+
+            numero2 = float(
+                input(f"Digite o valor para a posição [{i}][{j}] da matriz 2: "))
+            matriz2[i].append(numero2)
+
+    resultado = [[], []]
+    for i in range(2):
+        for j in range(2):
+            valor = 0
+            for k in range(2):
+                valor += matriz1[i][k] * matriz2[k][j]
+            resultado[i].append(valor)
+
+    print(resultado)
