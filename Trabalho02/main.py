@@ -88,7 +88,12 @@ def buscar():
 
         cursor.execute(select_id, data)
         lista = cursor.fetchone()
-        print(lista)
+
+        if lista:
+            print(
+                f"ID: {lista['id_aluno']} | Nome: {lista['nome']} | E-mail: {lista['email']} | Telefone: {lista['telefone']}")
+        else:
+            print(f"Aluno com ID {id} não encontrado no banco de dados.")
 
     except Exception as er:
         print("Erro ao buscar aluno!")
@@ -110,13 +115,17 @@ def atualizar():
 
         cursor.execute(query, data)  # update
 
-        cursor.execute(select_id, data2)
+        if cursor.rowcount > 0:
+            cnx.commit()
 
-        aluno = cursor.fetchone()
-        print("Telefone atualizado com sucesso!")
-        print(
-            f"ID: {aluno['id_aluno']} | Nome: {aluno['nome']} | E-mail: {aluno['email']} | Telefone: {aluno['telefone']}")
-        cnx.commit()
+            cursor.execute(select_id, data2)
+            aluno = cursor.fetchone()
+            print("Telefone atualizado com sucesso!")
+            print(
+                f"ID: {aluno['id_aluno']} | Nome: {aluno['nome']} | E-mail: {aluno['email']} | Telefone: {aluno['telefone']}")
+
+        else:
+            print(f"Aluno com ID {id} não encontrado no banco de dados.")
 
     except Exception as er:
         print("Erro ao atualizar telefone!")
@@ -135,8 +144,13 @@ def excluir():
         data = (id,)
 
         cursor.execute(query, data)
-        print("Usuário deletado com sucesso!")
-        cnx.commit()
+
+        if cursor.rowcount > 0:
+            cnx.commit()
+            print("Aluno deletado com sucesso!")
+
+        else:
+            print(f"Aluno com ID {id} não encontrado no banco de dados.")
 
     except Exception as er:
         print("Erro ao deletar usuário!")
