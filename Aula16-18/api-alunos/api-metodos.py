@@ -146,9 +146,9 @@ class MinhaAPI(BaseHTTPRequestHandler):
 
 
 def main():
-    servidor = HTTPServer(("localhost", 8000), MinhaAPI)
+    servidor = HTTPServer(("localhost", 8005), MinhaAPI)
 
-    print(f"Servidor rodando em http://localhost:8000")
+    print(f"Servidor rodando em http://localhost:8005")
     servidor.serve_forever()
 
 
