@@ -55,7 +55,7 @@ class MinhaAPI(BaseHTTPRequestHandler):
         if self.path == "/api/alunos":
             tamanho = int(self.headers.get("Content-length", 0))
 
-            corpo = self.rfile(tamanho)
+            corpo = self.rfile.read(tamanho)
             dados = json.loads(corpo)
 
             if "nome" not in dados or "idade" not in dados:
@@ -70,9 +70,9 @@ class MinhaAPI(BaseHTTPRequestHandler):
             alunos.append(novo_aluno)
 
             self.send_response(201)
-            self.header("Content-Type", "application/json")
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
-            self.wfile(json.dumps(novo_aluno).encode("utf-8"))
+            self.wfile.write(json.dumps(novo_aluno).encode("utf-8"))
 
     def do_PUT(self):
         if self.path == "/api/alunos":
@@ -84,7 +84,7 @@ class MinhaAPI(BaseHTTPRequestHandler):
                 return
 
             tamanho = int(self.headers.get("Content-length", 0))
-            corpo = self.rfile(tamanho)
+            corpo = self.rfile.read(tamanho)
             dados = json.loads(corpo)
 
             for aluno in alunos:
@@ -92,9 +92,9 @@ class MinhaAPI(BaseHTTPRequestHandler):
                     aluno["nome"] = dados.get("nome", aluno["nome"])
                     aluno["idade"] = dados.get("idade", aluno["idade"])
                     self.send_response(200)
-                    self.header("Content-Type", "application/json")
+                    self.send_header("Content-Type", "application/json")
                     self.end_headers()
-                    self.wfile(json.dumps(aluno).encode("utf-8"))
+                    self.wfile.write(json.dumps(aluno).encode("utf-8"))
                     return
             self.send_response(404)
             self.end_headers()
@@ -109,7 +109,7 @@ class MinhaAPI(BaseHTTPRequestHandler):
                 return
 
             tamanho = int(self.headers.get("Content-length", 0))
-            corpo = self.rfile(tamanho)
+            corpo = self.rfile.read(tamanho)
             dados = json.loads(corpo)
 
             for aluno in alunos:
@@ -119,9 +119,9 @@ class MinhaAPI(BaseHTTPRequestHandler):
                     if "idade" in dados:
                         aluno["idade"] = dados["idade"]
                     self.send_response(200)
-                    self.header("Content-Type", "application/json")
+                    self.send_header("Content-Type", "application/json")
                     self.end_headers()
-                    self.wfile(json.dumps(aluno).encode("utf-8"))
+                    self.wfile.write(json.dumps(aluno).encode("utf-8"))
                     return
             self.send_response(404)
             self.end_headers()
